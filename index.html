@@ -1,23 +1,237 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>slmgr.com</title>
-    <style>
-        body { font-family: -apple-system, "Segoe UI", sans-serif; display: flex;
-               min-height: 100vh; align-items: center; justify-content: center;
-               margin: 0; background: #f5f5f5; color: #333; }
-        .card { background: #fff; padding: 3rem 4rem; border-radius: 12px;
-                box-shadow: 0 4px 16px rgba(0,0,0,.08); text-align: center; }
-        h1 { margin: 0 0 .5rem; font-size: 1.6rem; }
-        p { margin: 0; color: #888; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Windows 系统下载</title>
+<meta name="keywords" content="Windows 下载,Windows 11,Windows 10,官方原版镜像">
+<meta name="description" content="Windows 操作系统官方原版镜像下载引导，纯净、安全的系统安装文件获取入口。">
+<link href="https://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+  body{background:#fff;color:#16181d;font-family:"Segoe UI","PingFang SC","Microsoft YaHei",Helvetica,sans-serif;-webkit-font-smoothing:antialiased;font-size:15px}
+  h1,h2,h3,h4{font-weight:400;letter-spacing:-.2px}
+  a{color:#0d6efd;text-decoration:none}
+  a:hover,a:focus{color:#0a58ca;text-decoration:none}
+
+  .navbar{margin-bottom:0;background:rgba(255,255,255,.86);border:0;backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px)}
+  .navbar-brand{font-weight:500;letter-spacing:.3px}
+  .navbar-default .navbar-nav>li>a{color:#5b6472;font-size:14px}
+  .navbar-default .navbar-nav>li>a:hover{color:#16181d}
+  .navbar-default .navbar-toggle{border-color:transparent}
+  .navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus{background:transparent}
+
+  .hero{padding:140px 0 110px;text-align:center;
+    background:radial-gradient(1100px 460px at 50% -10%,#eaf2ff 0%,#fbfcfe 46%,#fff 100%);
+    border-bottom:1px solid #eef0f3}
+  .hero h1{font-size:46px;font-weight:200;margin:0 0 20px;letter-spacing:-1.4px}
+  .hero p{font-size:16px;color:#6b7280;font-weight:300;margin:0 auto;max-width:520px}
+  .hero .btns{margin-top:36px}
+  .hero .note{margin-top:26px;font-size:12.5px;color:#9aa2ae;letter-spacing:.2px}
+
+  .btn-pill{border-radius:100px;padding:12px 30px;font-size:14.5px;transition:.22s ease}
+  .btn-pill i{margin-right:6px}
+  .btn-solid{background:#0d6efd;border:1px solid #0d6efd;color:#fff}
+  .btn-solid:hover,.btn-solid:focus{background:#0b5ed7;border-color:#0b5ed7;color:#fff;transform:translateY(-1px);box-shadow:0 6px 18px rgba(13,110,253,.26)}
+  .btn-line{background:#fff;border:1px solid #e3e7ec;color:#333a45}
+  .btn-line:hover,.btn-line:focus{background:#fff;border-color:#c3cbd6;color:#16181d}
+
+  section{padding:88px 0}
+  .sec-head{text-align:center;margin-bottom:52px}
+  .sec-head h2{font-size:28px;margin:0 0 10px}
+  .sec-head p{margin:0;color:#9aa2ae;font-size:14px}
+
+  .v-card{display:block;background:#fff;border:1px solid #eceef2;border-radius:14px;padding:34px 28px 30px;height:100%;
+    color:inherit;transition:.24s ease;position:relative;overflow:hidden}
+  .v-card:hover{transform:translateY(-4px);border-color:#d3e0f5;box-shadow:0 14px 34px rgba(22,24,29,.07);color:inherit}
+  .v-card .ico{width:46px;height:46px;line-height:46px;text-align:center;border-radius:12px;background:#f2f6ff;color:#0d6efd;font-size:19px;margin-bottom:20px}
+  .v-card h3{font-size:17px;margin:0 0 8px;font-weight:500}
+  .v-card p{margin:0 0 22px;color:#7c8697;font-size:13.5px;line-height:1.75;min-height:48px}
+  .v-card .go{font-size:13.5px;color:#0d6efd}
+  .v-card .go i{transition:.24s ease}
+  .v-card:hover .go i{transform:translateX(4px)}
+
+  .steps-wrap{background:#fafbfc;border-top:1px solid #eef0f3;border-bottom:1px solid #eef0f3}
+  .steps-wrap section{padding:72px 0}
+  .step{text-align:center;padding:0 12px}
+  .step .num{width:38px;height:38px;line-height:36px;margin:0 auto 16px;border-radius:50%;border:1px solid #d7e2f7;color:#0d6efd;font-size:14px;background:#fff}
+  .step h4{font-size:15px;margin:0 0 6px;font-weight:500}
+  .step p{margin:0;color:#8b95a3;font-size:13.5px;line-height:1.7}
+
+  .cta-final{text-align:center;padding:100px 0}
+  .cta-final h2{font-size:30px;margin:0 0 12px}
+  .cta-final p{color:#8b95a3;font-size:14.5px;margin:0 0 34px}
+
+  footer{border-top:1px solid #eef0f3;padding:30px 0;font-size:12.5px;color:#9aa2ae}
+  footer a{color:#8b95a3}
+  footer a:hover{color:#0d6efd}
+  footer .bn a{margin-right:18px}
+  footer .bn img{height:16px;width:auto;margin-right:5px;vertical-align:-3px}
+  footer .cp{margin-top:8px}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:767px){
+    .hero{padding:96px 0 74px}
+    .hero h1{font-size:30px;letter-spacing:-.6px}
+    .hero p{font-size:15px}
+    section,.steps-wrap section{padding:56px 0}
+    .sec-head{margin-bottom:36px}
+    .cta-final{padding:66px 0}
+    footer .text-right{text-align:left;margin-top:10px}
+    footer .bn a{display:inline-block;margin-bottom:6px}
+  }
+</style>
 </head>
 <body>
-    <div class="card">
-        <h1>slmgr.com</h1>
-        <p>Site initialized by oject.php</p>
+
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav">
+        <span class="sr-only">切换导航</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#top"><i class="fa fa-windows"></i> Windows</a>
     </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#versions">版本</a></li>
+        <li><a href="#steps">安装</a></li>
+        <li><a href="#download">下载</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container">
+    <h1>获取 Windows 官方原版镜像</h1>
+    <p>纯净、未经修改的系统安装文件，助你完成全新安装或版本升级。</p>
+    <div class="btns">
+      <a href="#download" class="btn btn-pill btn-solid"><i class="fa fa-download"></i>立即下载</a>
+      <a href="#versions" class="btn btn-pill btn-line" style="margin-left:10px">选择版本</a>
+    </div>
+    <p class="note">Windows 11 &nbsp;·&nbsp; Windows 10 &nbsp;·&nbsp; LTSC</p>
+  </div>
+</header>
+
+<section id="versions">
+  <div class="container">
+    <div class="sec-head">
+      <h2>选择版本</h2>
+      <p>根据设备情况选择合适的系统版本</p>
+    </div>
+    <div class="row">
+
+      <div class="col-md-4 col-sm-4">
+        <div class="reveal" style="height:100%">
+          <a href="#download" class="v-card">
+            <div class="ico"><i class="fa fa-television"></i></div>
+            <h3>Windows 11</h3>
+            <p>全新界面与交互，支持最新安全特性。</p>
+            <span class="go">下载 <i class="fa fa-long-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-4">
+        <div class="reveal" style="height:100%">
+          <a href="#download" class="v-card">
+            <div class="ico"><i class="fa fa-desktop"></i></div>
+            <h3>Windows 10</h3>
+            <p>稳定成熟，兼容性广泛。</p>
+            <span class="go">下载 <i class="fa fa-long-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-4">
+        <div class="reveal" style="height:100%">
+          <a href="#download" class="v-card">
+            <div class="ico"><i class="fa fa-suitcase"></i></div>
+            <h3>LTSC 企业版</h3>
+            <p>面向专业环境，支持周期更长。</p>
+            <span class="go">下载 <i class="fa fa-long-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="steps-wrap">
+  <section id="steps">
+    <div class="container">
+      <div class="sec-head">
+        <h2>三步完成安装</h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 step reveal">
+          <div class="num">1</div>
+          <h4>下载镜像</h4>
+          <p>获取官方原版 ISO 文件</p>
+        </div>
+        <div class="col-sm-4 step reveal">
+          <div class="num">2</div>
+          <h4>制作启动盘</h4>
+          <p>使用 8GB 以上 U 盘写入</p>
+        </div>
+        <div class="col-sm-4 step reveal">
+          <div class="num">3</div>
+          <h4>安装系统</h4>
+          <p>从 U 盘启动并按提示完成</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section id="download" class="cta-final">
+  <div class="container">
+    <h2>准备好开始了吗</h2>
+    <p>选择上方任一版本，即可获取官方镜像下载链接。</p>
+    <a href="#versions" class="btn btn-pill btn-solid"><i class="fa fa-cloud-download"></i>获取官方镜像</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 bn">
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow">鲁ICP备2024092961号-1</a>
+        <a href="#" target="_blank" rel="nofollow"><i class="fa fa-shield"></i> 鲁公网安备37130202373077号</a>
+      </div>
+      <div class="col-sm-6 text-right cp">
+        &copy; <span id="year">2026</span> slmgr.com · 本站仅提供下载引导，版权归微软公司所有
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+  $(function(){
+    $('#year').text(new Date().getFullYear());
+
+    $('a[href^="#"]').filter(function(){ return $(this).attr('href') !== '#'; }).on('click', function(e){
+      var t = $($(this).attr('href'));
+      if (t.length){ e.preventDefault(); $('html, body').animate({ scrollTop: t.offset().top - 56 }, 450); }
+    });
+
+    function reveal(){
+      $('.reveal').each(function(){
+        var $el = $(this);
+        if ($el.offset().top < $(window).scrollTop() + $(window).height() - 60) {
+          setTimeout(function(){ $el.addClass('in'); }, $el.index('.reveal') % 3 * 80);
+        }
+      });
+    }
+    reveal();
+    $(window).on('scroll resize', reveal);
+  });
+</script>
 </body>
 </html>
